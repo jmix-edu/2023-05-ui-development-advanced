@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://userInfoEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="userInfoDc"
+                  class="com.company.jmixpm.entity.UserInfo">
+            <loader id="userInfoDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <layout spacing="true" expand="editActions">
+        <form id="form" dataContainer="userInfoDc" editable="false">
+            <column width="350px">
+                <textField id="idField" property="id"/>
+                <textField id="nameField" property="name"/>
+                <textField id="emailField" property="email"/>
+                <textField id="phoneField" property="phone"/>
+                <textField id="websiteField" property="website"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
