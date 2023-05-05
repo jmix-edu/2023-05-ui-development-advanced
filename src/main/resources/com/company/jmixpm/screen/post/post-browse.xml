@@ -10,6 +10,10 @@
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
+
+        <screen id="userInfoScreenFacet"
+                screenClass="com.company.jmixpm.screen.userinfo.UserInfoEdit"
+                onAction="postsTable.viewUserInfo"/>
     </facets>
     <layout expand="postsTable" spacing="true">
         <table id="postsTable"
@@ -29,5 +33,8 @@
                 <column id="body"/>
             </columns>
         </table>
+        <pagination id="pagination" itemsPerPageDefaultValue="20" align="TOP_RIGHT">
+            <loaderProvider loaderId="postsDl"/>
+        </pagination>
     </layout>
 </window>

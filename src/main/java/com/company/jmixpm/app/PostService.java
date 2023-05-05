@@ -18,6 +18,13 @@ public class PostService {
         return posts != null ? Arrays.asList(posts) : Collections.emptyList();
     }
 
+    public List<Post> fetchPosts(int firstResult, int maxResult) {
+        RestTemplate rest = new RestTemplate();
+        Post[] posts = rest.getForObject("https://jsonplaceholder.typicode.com/posts?_start={start}&_end={end}",
+                Post[].class, firstResult, firstResult + maxResult);
+        return posts != null ? Arrays.asList(posts) : Collections.emptyList();
+    }
+
     public UserInfo fetchUserInfo(Long id) {
         RestTemplate rest = new RestTemplate();
         return rest.getForObject("https://jsonplaceholder.typicode.com/users/{id}", UserInfo.class, id);
