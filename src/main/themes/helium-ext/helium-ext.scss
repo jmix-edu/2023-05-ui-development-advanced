@@ -1,0 +1,22 @@
+@import "../helium/helium";
+
+@mixin helium-ext {
+  @include helium;
+
+  &.cobalt {
+  }
+
+  .v-table-row-cs.no-estimated-efforts {
+    color: var(--error-color);
+  }
+
+  .v-table-cell-content.no-estimated-efforts .v-table-cell-wrapper {
+    &:before {
+      content: "\2757";
+
+      //❗️
+      // red exclamation mark
+      // Unicode: U+2757 U+FE0F, UTF-8: E2 9D 97 EF B8 8F
+    }
+  }
+}

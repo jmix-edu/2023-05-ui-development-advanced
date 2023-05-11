@@ -39,7 +39,6 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="tasksTable"
-                    editable="true"
                     width="100%"
                     dataContainer="tasksDc">
             <actions>
@@ -50,10 +49,10 @@
             <columns>
                 <column id="name"/>
                 <column id="assignee"/>
-                <column id="startDate" editable="true"/>
+                <column id="startDate"/>
                 <column id="estimatedEfforts"/>
                 <column id="project"/>
-                <column id="color" editable="true"/>
+                <column id="color"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
