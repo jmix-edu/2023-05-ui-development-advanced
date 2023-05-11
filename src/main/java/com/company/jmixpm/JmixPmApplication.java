@@ -1,6 +1,10 @@
 package com.company.jmixpm;
 
+import com.company.jmixpm.component.ColoField;
+import com.company.jmixpm.component.ColorFieldLoader;
 import com.google.common.base.Strings;
+import io.jmix.ui.sys.registration.ComponentRegistration;
+import io.jmix.ui.sys.registration.ComponentRegistrationBuilder;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -45,5 +49,13 @@ public class JmixPmApplication {
 				+ "http://localhost:"
 				+ environment.getProperty("local.server.port")
 				+ Strings.nullToEmpty(environment.getProperty("server.servlet.context-path")));
+	}
+
+	@Bean
+	public ComponentRegistration colorField() {
+		return ComponentRegistrationBuilder.create(ColoField.NAME)
+				.withComponentClass(ColoField.class)
+				.withComponentLoaderClass(ColorFieldLoader.class)
+				.build();
 	}
 }

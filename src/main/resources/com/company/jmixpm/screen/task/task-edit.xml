@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:app="http://schemas.company.com/demo/0.1/app-ui-components.xsd"
         caption="msg://taskEdit.caption"
         focusComponent="form">
     <data>
@@ -44,7 +45,7 @@
                     </actions>
                 </entityPicker>
 
-                <field id="colorField" property="color"/>
+                <app:colorField id="colorField" property="color" required="true"/>
 
             </column>
         </form>

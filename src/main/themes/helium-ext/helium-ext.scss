@@ -19,4 +19,31 @@
       // Unicode: U+2757 U+FE0F, UTF-8: E2 9D 97 EF B8 8F
     }
   }
+
+  .color-field {
+    display: flex;
+    width: $v-default-field-width;
+
+    .color-field-picker > .v-button {
+      border: 1px solid var(--border-color);
+      border-top-right-radius: $v-border-radius;
+      border-bottom-right-radius: $v-border-radius;
+    }
+
+    .v-caption-color-field-value {
+      display: none;
+    }
+  }
+
+  .stepper {
+    input[type="text"] {
+      @include box-defaults;
+      @include valo-textfield-style;
+      @include he-input-style;
+    }
+
+    .stepper-up, .stepper-down {
+      line-height: .9;
+    }
+  }
 }

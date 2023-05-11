@@ -1,0 +1,11 @@
+<composite xmlns="http://jmix.io/schema/ui/composite">
+    <cssLayout id="colorField_rootBox"
+               stylename="v-component-group color-field">
+        <textField id="colorField_valueField"
+                   datatype="color"
+                   stylename="color-field-value"
+                   width="100%"/>
+        <colorPicker id="colorField_colorPicker"
+                     stylename="color-field-picker"/>
+    </cssLayout>
+</composite>
