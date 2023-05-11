@@ -28,7 +28,7 @@
     <dialogMode height="600"
                 width="800"/>
     <layout spacing="true" expand="editActions">
-        <hbox spacing="true" width="AUTO">
+        <hbox id="fieldsWrapper" spacing="true" width="AUTO">
             <form id="form" dataContainer="userDc">
                 <column width="350px">
                     <textField id="usernameField" property="username" editable="false"/>
@@ -46,7 +46,7 @@
                     <checkBox id="activeField" property="active"/>
                 </column>
             </form>
-            <fragment screen="AddressFragment"/>
+<!--            <fragment screen="AddressFragment"/>-->
         </hbox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>

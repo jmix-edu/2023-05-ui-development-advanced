@@ -46,17 +46,20 @@
                 <action id="remove" type="remove"/>
                 <action id="generateData" caption="Generate data"/>
             </actions>
+
             <columns>
                 <column id="name"/>
                 <column id="startDate"/>
                 <column id="endDate"/>
                 <column id="manager"/>
             </columns>
+
             <simplePagination
                     itemsPerPageDefaultValue="20"
                     itemsPerPageVisible="true"
                     itemsPerPageOptions="10,20,30,40,50"
             />
+
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="projectsTable.create"/>

@@ -10,8 +10,17 @@
                 <property name="tasks" fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
-            <collection id="tasksDc" property="tasks"/>
+<!--            <collection id="tasksDc" property="tasks"/>-->
         </instance>
+
+        <collection id="tasksDc" class="com.company.jmixpm.entity.Task">
+            <fetchPlan extends="_base"/>
+            <loader id="tasksDl">
+                <query>
+                    <![CDATA[select e from Task_ e where e.project = :container_projectDc]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -34,12 +43,21 @@
                 <textField id="nameField" property="name"/>
                 <dateField id="startDateField" property="startDate"/>
                 <dateField id="endDateField" property="endDate"/>
-                <entityPicker id="managerField" property="manager">
+
+                <entitySuggestionField id="managerField" property="manager"
+                                       inputPrompt="Start typing..."
+                                       minSearchStringLength="3">
+                    <query entityClass="com.company.jmixpm.entity.User"
+                           searchStringFormat="%${searchString}%"
+                           escapeValueForLike="true"
+                           fetchPlan="_instance_name">
+                        <![CDATA[select e from User e where lower(e.username) like lower(:searchString) escape '\']]>
+                    </query>
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
-                </entityPicker>
+                </entitySuggestionField>
             </column>
         </form>
         <groupBox id="tasksBox" caption="msg://com.company.jmixpm.entity/Project.tasks">
@@ -54,6 +72,7 @@
                     <column id="startDate"/>
                     <column id="estimatedEfforts"/>
                 </columns>
+                <simplePagination/>
                 <buttonsPanel>
                     <button action="tasksTable.create"/>
                     <button action="tasksTable.edit"/>
